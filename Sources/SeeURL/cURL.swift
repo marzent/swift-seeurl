@@ -149,7 +149,7 @@ public final class cURL {
         guard code.rawValue == CURLE_OK.rawValue else { throw cURL.Error(rawValue: code.rawValue) ?? Error.Undefined }
     }
     
-    public func set<T>(option: Option, _ value: UnsafeMutablePointer<FILE>) throws {
+    public func set(option: Option, _ value: UnsafeMutablePointer<FILE>) throws {
         
         let code = curl_easy_setopt_pointer(internalHandler, option, value)
         
