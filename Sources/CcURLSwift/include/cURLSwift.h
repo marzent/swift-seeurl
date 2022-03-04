@@ -29,7 +29,7 @@ static CURLoption CURLOPT_READDATA = CURLOPT_INFILE;
 #endif
 
 typedef size_t (*curl_func)(char * ptr, size_t size, size_t num, void * ud);
-typedef size_t (*curl_func_progress)(void *clientp, double dltotal, double dlnow, double ultotal, double ulnow);
+typedef int (*curl_func_progress)(void *clientp, double dltotal, double dlnow, double ultotal, double ulnow);
 
 CURL_INLINE CURLcode curl_easy_setopt_string(CURL *curl, CURLoption option, const char *param) {
     return curl_easy_setopt(curl, option, param);
