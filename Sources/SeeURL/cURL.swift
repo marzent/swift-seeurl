@@ -144,7 +144,7 @@ public final class cURL {
     
     public func set(option: Option, _ value: @escaping curl_progress_callback) throws {
         
-        let code = curl_easy_setopt_func(internalHandler, option, value)
+        let code = curl_easy_setopt_func_prog(internalHandler, option, value)
         
         guard code.rawValue == CURLE_OK.rawValue else { throw cURL.Error(rawValue: code.rawValue) ?? Error.Undefined }
     }
