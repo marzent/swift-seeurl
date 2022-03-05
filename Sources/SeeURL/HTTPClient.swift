@@ -63,8 +63,6 @@ public struct HTTPClient {
             try curl.set(option: CURLOPT_PROXY, proxy)
         }
         
-        try curl.set(option: CURLOPT_USERAGENT, "curl/0.0.0")
-        
         // append data
         if body.count > 0 {
             
@@ -103,10 +101,8 @@ public struct HTTPClient {
             try curl.set(option:CURLOPT_HTTPHEADER, curlHeaders)
         }
         
-        else {
-            
-            try curl.set(option: CURLOPT_USERAGENT, "curl/7.77.0")
-            
+        else {  
+            try curl.set(option: CURLOPT_USERAGENT, "curl/7.77.0")       
         }
         
         // set response data callback
