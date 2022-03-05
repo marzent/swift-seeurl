@@ -24,7 +24,7 @@ public struct HTTPClient {
             self.verbose = false
             self.followRedirect = true
             self.proxy = nil
-            self.acceptEncoding = ""
+            self.acceptEncoding = nil
         }
         public init(timeoutInterval: Int, varbose: Bool, followRedirect: Bool, acceptEncoding: String?, proxy: String?) {
             self.timeoutInterval = timeoutInterval
@@ -101,6 +101,12 @@ public struct HTTPClient {
             }
             
             try curl.set(option:CURLOPT_HTTPHEADER, curlHeaders)
+        }
+        
+        else {
+            
+            try curl.set(option: CURLOPT_USERAGENT, "curl/7.77.0")
+            
         }
         
         // set response data callback
