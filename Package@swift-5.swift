@@ -10,11 +10,7 @@ let package = Package(
         .systemLibrary(
             name: "CcURL",
             path: "Sources/CcURL",
-            pkgConfig: "curl",
-            providers: [
-                .brew(["curl"]),
-                .apt(["libcurl4-openssl-dev"])
-            ]
+            pkgConfig: "curl"
         ), 
         .target(name: "CcURLSwift", dependencies: ["CcURL"]), 
         .target(name: "SeeURL", dependencies: ["CcURLSwift"]),
